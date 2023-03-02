@@ -1,0 +1,110 @@
+.header {
+    padding: 30px 0 0;
+
+    .container {
+        @include container;
+    }
+
+    .header__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 68px;
+        min-height: 55px;
+        margin: 0 0 35px;
+
+        @media (max-width: 1199px) {
+            gap: 34px;
+
+            @media (max-width: 767px) {
+                position: fixed;
+                display: block;
+                top: 87px;
+                right: 10px;
+                background-color: #f5f5f5;
+                margin: 0;
+                // padding: 0 0 0 13px;
+                width: 182px;
+                height: 210px;
+            }
+        }
+
+        .header__nav-item {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+
+            @media (max-width: 767px) {
+                width: 100%;
+                padding: 0 0 0 13px;
+                height: 30px;
+
+                &:hover {
+                    background-color: #e5e5e5;
+                }
+            }
+        }
+
+        .header__nav-item a {
+            color: #4e4e4e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            @media (max-width: 767px) {
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 32px;
+            }
+        }
+
+        .header__nav-item a:hover {
+            color: #57a4a4;
+        }
+    }
+
+    .header__burger {
+        display: none;
+
+        @media (max-width: 767px) {
+            display: inline-block;
+            position: relative;
+            left: 0;
+            width: 44px;
+            height: 37px;
+            background-color: #000;
+            margin: 0 0 23px;
+
+            &::before,
+            &::after,
+            & span {
+                content: '';
+                background-color: #fff;
+                position: absolute;
+                left: 13px;
+                width: 17px;
+                height: 2px;
+            }
+            &::before {
+                top: 13px;
+            }
+
+            &::after {
+                bottom: 14px;
+            }
+
+            & span {
+                top: 17px;
+            }
+        }
+    }
+
+    .header__img-wrapper {
+        max-height: 550px;
+
+        .header__img {
+            width: 100%;
+        }
+    }
+}

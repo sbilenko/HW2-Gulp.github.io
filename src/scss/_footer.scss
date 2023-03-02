@@ -1,0 +1,99 @@
+.footer {
+    text-align: center;
+    padding: 65px 0 70px;
+    background-color: #000;
+
+    .footer__title {
+        color: #fefefe;
+        margin: 0 0 22px;
+    }
+
+    .footer__content {
+        max-width: 684px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        color: #b9b9b9;
+        margin: 0 auto;
+    }
+
+    .footer__text {
+        line-height: 26px;
+    }
+
+    .footer__icons {
+        display: flex;
+        gap: 6px;
+    }
+
+    .footer__icons a {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+    .footer__icons svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .footer__rss-icon-wrapper {
+        border: 2px solid #f8902e;
+
+        .footer__rss-icon {
+            fill: #f8902e;
+        }
+    }
+
+    .footer__facebook-icon-wrapper {
+        border: 2px solid #39599f;
+
+        .footer__facebook-icon {
+            fill: #39599f;
+        }
+    }
+
+    .footer__twitter-icon-wrapper {
+        border: 2px solid #45b0e3;
+
+        .footer__twitter-icon {
+            width: 20px;
+            height: 20px;
+            fill: #45b0e3;
+        }
+    }
+
+    .footer__dribble-icon-wrapper {
+        border: 2px solid #d97ab0;
+
+        .footer__dribble-icon {
+            fill: #d97ab0;
+        }
+    }
+
+    .footer__pinterest-icon-wrapper {
+        border: 2px solid #cc212c;
+        .footer__pinterest-icon {
+            fill: #cc212c;
+        }
+    }
+
+    .footer__info {
+        @media (max-width: 767px) {
+            .footer__info-address {
+                display: block;
+                margin: 0 0 10px;
+            }
+
+            .footer__info-tel {
+                display: block;
+                margin: 0 0 10px;
+            }
+        }
+    }
+}
