@@ -4,4 +4,12 @@
 .main {
     flex: 1 1 auto;
     padding: 70px 0 0;
+
+    @media (max-width: 1199px) {
+        padding: 60px 0 0;
+    }
+
+    @media (max-width: 767px) {
+        padding: 40px 0 0;
+    }
 }
