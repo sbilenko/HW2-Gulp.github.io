@@ -6,6 +6,12 @@ html,
 body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
+
+    @media (max-width: 767px) {
+        body.lock {
+            overflow: hidden;
+        }
+    }
 }
 
 .wrapper {
