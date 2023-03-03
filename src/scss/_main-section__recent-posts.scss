@@ -8,6 +8,10 @@
     .recent-posts__title {
         color: #4e4e4e;
         margin: 0 0 24px;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
     }
 
     .recent-posts__items {
@@ -59,6 +63,7 @@
         margin: 0 0 8px;
 
         @media (max-width: 767px) {
+            font-size: 14px;
             margin: 0;
         }
     }
@@ -69,6 +74,7 @@
         margin: 0 0 12px;
 
         @media (max-width: 767px) {
+            font-size: 11px;
             margin: 0;
         }
     }
