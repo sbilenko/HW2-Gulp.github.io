@@ -6,6 +6,10 @@
     .footer__title {
         color: #fefefe;
         margin: 0 0 22px;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
     }
 
     .footer__content {
@@ -21,6 +25,10 @@
 
     .footer__text {
         line-height: 26px;
+
+        @media (max-width: 767px) {
+            font-size: 12px;
+        }
     }
 
     .footer__icons {
@@ -85,6 +93,8 @@
 
     .footer__info {
         @media (max-width: 767px) {
+            font-size: 14px;
+            
             .footer__info-address {
                 display: block;
                 margin: 0 0 10px;
