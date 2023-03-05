@@ -4,8 +4,6 @@ import gulp from 'gulp'
 import dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 const sass = gulpSass(dartSass)
-import cssnano from 'gulp-cssnano'
-import rename from 'gulp-rename'
 import autoprefixer from 'gulp-autoprefixer'
 import uglify from 'gulp-uglify'
 import concat from 'gulp-concat'
@@ -33,14 +31,14 @@ const path = {
         css: [srcPath + 'scss/*.scss', !srcPath + 'scss/_*.scss'],
         js: srcPath + 'scripts/*.js',
         images: srcPath + 'images/**/*.{jpg,png,gif,ico}',
-        svg: srcPath + 'images/**/*.svg'
+        svg: srcPath + 'images/**/*.svg',
     },
     watch: {
         html: srcPath + '**/*.html',
         css: srcPath + 'scss/**/*.scss',
         js: srcPath + 'scripts/**/*.js',
         images: srcPath + 'images/**/*.{jpg,png,gif,ico}',
-        svg: srcPath + 'images/**/*.svg'
+        svg: srcPath + 'images/**/*.svg',
     },
     clean: './' + distPath,
 }
@@ -60,36 +58,24 @@ function clean() {
 }
 
 function css() {
-    return src(path.src.css, { base: srcPath + 'scss/' })
-        .pipe(sass())
-        .pipe(autoprefixer())
-        .pipe(
-            cssnano({
-                zindex: false,
-            })
-        )
-        .pipe(
-            rename({
-                suffix: '.min',
-                extname: '.css',
-            })
-        )
-        .pipe(dest(path.build.css))
-        .pipe(browserSync.reload({ stream: true }))
+    return (
+        src(path.src.css, { base: srcPath + 'scss/' })
+            .pipe(concat('index.min.css'))
+            .pipe(autoprefixer())
+            .pipe(sass({ outputStyle: 'compressed' }))
+            .pipe(dest(path.build.css))
+            .pipe(browserSync.reload({ stream: true }))
+    )
 }
 
 function js() {
-    return src(path.src.js, { base: srcPath + 'scripts/' })
-        .pipe(concat('index.js'))
-        .pipe(uglify())
-        .pipe(
-            rename({
-                suffix: '.min',
-                extname: '.js',
-            })
-        )
-        .pipe(dest(path.build.js))
-        .pipe(browserSync.reload({ stream: true }))
+    return (
+        src(path.src.js, { base: srcPath + 'scripts/' })
+            .pipe(concat('index.min.js'))
+            .pipe(uglify())
+            .pipe(dest(path.build.js))
+            .pipe(browserSync.reload({ stream: true }))
+    )
 }
 
 function images() {
@@ -124,57 +110,3 @@ const dev = () => {
 }
 
 gulp.task('default', parallel(build(), dev()))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const path = {
-//   html: './index.html',
-// }
-
-// function server() {
-//   browserSync.init({
-//     server: {
-//       baseDir: './',
-//     },
-//     port: 9000,
-//     notify: false,
-//   })
-// }
-
-// function buildStyles() {
-//   deleteAsync('./dist/**/*.css')
-//   return src('./src/styles/**/*.scss')
-//     .pipe(sass.sync().on('error', sass.logError))
-//     .pipe(autoPrefixer())
-//     .pipe(
-//       rename({
-//         suffix: '.min',
-//         basename: 'styles',
-//       })
-//     )
-//     .pipe(gulp.dest('./dist/css'))
-// }
-
-// function watchers() {
-//   watch('./src/styles/**/*.scss', buildStyles).on('change', browserSync.reload)
-// }
-
-// gulp.task('default', parallel(server, buildStyles, watchers))
